@@ -1,0 +1,2 @@
+module vki_Manager {
+}
