@@ -1,4 +1,4 @@
-package de.tu_dortmund.modules;
+package de.tu_dortmund.vki.modules;
 
 import de.tu_dortmund.vki.utils.URLSource;
 import de.tu_dortmund.vki.utils.VkiModule;

@@ -1,4 +1,4 @@
-package de.tu_dortmund.modules;
+package de.tu_dortmund.vki.modules;
 
 import java.util.Arrays;
 import java.util.HashSet;

@@ -1,7 +1,7 @@
 package de.tu_dortmund.vki.main;
 
-import de.tu_dortmund.modules.DemoModule;
-import de.tu_dortmund.modules.Uebung1;
+import de.tu_dortmund.vki.modules.DemoModule;
+import de.tu_dortmund.vki.modules.Uebung1;
 import de.tu_dortmund.vki.utils.VkiModuleManager;
 
 public class Main {
