@@ -1,6 +1,8 @@
 package de.tu_dortmund.vki.modules;
 
 
+import java.util.Arrays;
+
 import de.tu_dortmund.vki.utils.URLSource;
 import de.tu_dortmund.vki.utils.VkiModule;
 
@@ -39,11 +41,26 @@ public class Uebung2 extends VkiModule {
 		
 		System.out.println("Task 4: \n");
 		testArithmetik();
+		
+		System.out.println("\n\nTask 5: \n");
+		testLog2();
+		
+		System.out.println("\n\nTask 6: \n");
+		testFakultaet();
+		testNUeberK();
+		
+		System.out.println("\n\nTask 7: \n");
+		testMax();
+		
+		System.out.println("\n\nTask 8: \n");
+		testPrimes();
 	}
 	
 	// --- Test methods ---
 	
 	public void testPrintSquare() {
+		// Task 1
+		
 		for(int i = 1; i <= 5; i++) {
 			System.out.println("Square in length of " + i + "\n");
 			printSquare(i);
@@ -52,6 +69,8 @@ public class Uebung2 extends VkiModule {
 	}
 	
 	public void testPower() {
+		// Task 2
+		
 		System.out.println("Results of power method: ");
 		for(int i = -2; i <= 2; i++) {
 			for(int j = -2; j <= 2; j++) {
@@ -61,6 +80,8 @@ public class Uebung2 extends VkiModule {
 	}
 	
 	public void testPowerRek() {
+		// Task 3
+		
 		System.out.println("Results of powerRek method: ");
 		for(int i = -2; i <= 2; i++) {
 			for(int j = -2; j <= 2; j++) {
@@ -70,11 +91,55 @@ public class Uebung2 extends VkiModule {
 	}
 	
 	public void testArithmetik() {
+		// Task 4
+		
 		System.out.println("Arithmetiktest: ");
 		for(int i = -2; i <= 2; i++) {
 			for(int j = -2; j <= 2; j++) {
 				System.out.println("Addition x: " + i + " y: " + j + " Result: " + Arithmetik.addition(i, j));
 				System.out.println("Subtraktion x: " + i + " y: " + j + " Result: " + Arithmetik.subtraktion(i, j));
+			}
+		}
+	}
+	
+	public void testLog2() {
+		// Task 5
+		
+		int logNum = 64;
+		System.out.println("Log2(" + logNum + ") = " + log2(logNum));
+	}
+	
+	public void testFakultaet() {
+		// Task 6
+		
+		int fak = 2;
+		System.out.println("Fakultät von " + fak + " ist " + fakultaet(fak));
+	}
+	
+	public void testNUeberK() {
+		// Task 6
+		
+		int[][] values = {{12, 6}, {11, 5}, {11, 6}}; 
+		
+		for (int[] current : values) {
+			System.out.println(current[0] + " über " + current[1] + " ist " + nUeberK(current[0], current[1]));
+		}
+	}
+	
+	public void testMax() {
+		// Task 7
+		
+		int[] arr = {-1, -423, 5, 6, 7, 4, 9};
+		System.out.println("Maximum von der Menge " + Arrays.toString(arr) + " ist: " + max(arr));
+	}
+	
+	public void testPrimes() {
+		// Task 8
+		
+		boolean[] primes = computePrimes(1000);
+		for(int i = 0; i < primes.length; i++) {
+			if(primes[i] == true) {
+				System.out.println(i + " ist eine Primzahl");
 			}
 		}
 	}
@@ -137,6 +202,66 @@ public class Uebung2 extends VkiModule {
 		} else {
 			return powerRek(x, y - 1) * x;
 		}
+	}
+	
+	public int log2(int x) {
+		int num = x;
+		int counter = 0;
+		while(num >= 2) {
+			num /= 2;
+			counter++;
+		}
+		
+		return counter;
+	}
+	
+	public int fakultaet(int x) {
+		if(x > 0) {
+			return fakultaet(x - 1) * x;
+		} else {
+			return 1;
+		}
+	}
+	
+	public int nUeberK(int n, int k) {
+		return fakultaet(n) / (fakultaet(k) * fakultaet(n - k));
+	}
+	
+	public int max(int[] arr) {
+		return maxHelp(arr, arr[0], 1);
+	}
+	
+	public int maxHelp(int[] arr, int max, int index) {
+		if(index == arr.length) {
+			return max;
+		} else if(arr[index] > max) {
+			return maxHelp(arr, arr[index], index + 1);
+		} else {
+			return maxHelp(arr, max, index + 1);
+		}
+	}
+	
+	public boolean[] computePrimes(int amount) {
+		boolean[] primes = new boolean[amount];
+		
+		for(int i = 0; i < primes.length; i++) {
+			primes[i] = true;
+		}
+		
+		primes[0] = false;
+		primes[1] = false; 
+		
+		for(int i = 0; i < primes.length; i++) {
+			if(primes[i] == true) {
+				int y = 2;
+				while(y * i < amount) {
+					primes[y * i] = false;
+					y++;
+				}
+			}
+		}
+		
+		return primes;
 	}
 	
 	
