@@ -1,7 +1,5 @@
 package de.tu_dortmund.vki.modules;
 
-import java.util.LinkedList;
-import java.util.List;
 
 import de.tu_dortmund.vki.utils.URLSource;
 import de.tu_dortmund.vki.utils.VkiModule;
@@ -31,18 +29,21 @@ public class Uebung2 extends VkiModule {
 		// This method is like the main method in java for you
 		
 		System.out.println("Task 1: \n");
-		testPrintSqaure();
+		testPrintSquare();
 		
 		System.out.println("Task 2: \n");
 		testPower();
 		
 		System.out.println("Task 3: \n");
 		testPowerRek();
+		
+		System.out.println("Task 4: \n");
+		testArithmetik();
 	}
 	
 	// --- Test methods ---
 	
-	public void testPrintSqaure() {
+	public void testPrintSquare() {
 		for(int i = 1; i <= 5; i++) {
 			System.out.println("Square in length of " + i + "\n");
 			printSquare(i);
@@ -64,6 +65,16 @@ public class Uebung2 extends VkiModule {
 		for(int i = -2; i <= 2; i++) {
 			for(int j = -2; j <= 2; j++) {
 				System.out.println("x: " + i + " y: " + j + " Result: " + powerRek(i, j));
+			}
+		}
+	}
+	
+	public void testArithmetik() {
+		System.out.println("Arithmetiktest: ");
+		for(int i = -2; i <= 2; i++) {
+			for(int j = -2; j <= 2; j++) {
+				System.out.println("Addition x: " + i + " y: " + j + " Result: " + Arithmetik.addition(i, j));
+				System.out.println("Subtraktion x: " + i + " y: " + j + " Result: " + Arithmetik.subtraktion(i, j));
 			}
 		}
 	}
@@ -201,4 +212,42 @@ public class Uebung2 extends VkiModule {
 		return MODULE_SOURCES;
 	}
 
+}
+
+
+
+class Arithmetik {
+	public static int addition(int x, int y) {
+		int a = x;
+		int b = y;
+		
+		if(y == 0) {
+			return x;
+		} else if(y < 0) {
+			a--;
+			b++;
+			return addition(a, b);
+		} else {
+			a++;
+			b--;
+			return addition(a, b);
+		}
+	}
+	
+	public static int subtraktion(int x, int y) {
+		int a = x;
+		int b = y;
+		
+		if(y == 0) {
+			return x;
+		} else if(y < 0) {
+			a++;
+			b++;
+			return subtraktion(a, b);
+		} else {
+			a--;
+			b--;
+			return subtraktion(a, b);
+		}
+	}
 }
