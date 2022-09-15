@@ -6,7 +6,6 @@ import java.util.Arrays;
 import de.tu_dortmund.vki.utils.URLSource;
 import de.tu_dortmund.vki.utils.VkiModule;
 
-// This is a demo module. Please copy it, to create your own modules.
 
 // Your module information
 
@@ -265,53 +264,12 @@ public class Uebung2 extends VkiModule {
 	}
 	
 	
+	// NOTE: Under the General module stuff is another class, which was added for one of the tasks
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	// General Module stuff (you can just ignore it)
