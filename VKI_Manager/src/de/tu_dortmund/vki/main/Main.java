@@ -2,6 +2,7 @@ package de.tu_dortmund.vki.main;
 
 import de.tu_dortmund.vki.modules.DemoModule;
 import de.tu_dortmund.vki.modules.Uebung1;
+import de.tu_dortmund.vki.modules.Uebung2;
 import de.tu_dortmund.vki.utils.VkiModuleManager;
 
 public class Main {
@@ -13,8 +14,9 @@ public class Main {
 		
 		// Load your modules here
 		
-		manager.loadModule(new DemoModule());
-		manager.loadModule(new Uebung1());
+//		manager.loadModule(new DemoModule());
+//		manager.loadModule(new Uebung1());
+		manager.loadModule(new Uebung2());
 		
 		manager.runAll();
 	}

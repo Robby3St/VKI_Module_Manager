@@ -1,7 +1,7 @@
 # VKI Module Manager
 A very small manager to organize little projects (ordered in modules) within a single Java Project.
 
-## Install
+## Installation guide
 
 **Install** the project by downloading it and **import** it to your development environment of your choice. 
 When you want to create your own modules inside the VKI Manager, you can simpy create a new class in the modules package and copy the whole DemoClass from the module package. Now, you should customize the information at the top of the class and rename the class itself to belong to your needs. 
