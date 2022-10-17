@@ -1,5 +1,6 @@
 package de.tu_dortmund.vki.main;
 
+import de.tu_dortmund.vki.modules.DAP1_Uebung_01;
 import de.tu_dortmund.vki.modules.DemoModule;
 import de.tu_dortmund.vki.modules.Uebung1;
 import de.tu_dortmund.vki.modules.Uebung2;
@@ -16,7 +17,9 @@ public class Main {
 		
 //		manager.loadModule(new DemoModule());
 //		manager.loadModule(new Uebung1());
-		manager.loadModule(new Uebung2());
+//		manager.loadModule(new Uebung2());
+		manager.loadModule(new DAP1_Uebung_01());
+
 		
 		manager.runAll();
 	}
