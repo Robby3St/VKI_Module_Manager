@@ -19,7 +19,7 @@ public class GameOfLife {
     public void nextState(int i, int j) {
         int neightbours = countLivingNeightbours(i, j);
         if(!this.population[i][j]) {
-            if(neightbours == 2 || neightbours == 3) {
+            if(neightbours >= 2 && neightbours <= 3) {
                 this.population[i][j] = true;
             }
         }
@@ -35,31 +35,23 @@ public class GameOfLife {
 
     private int countLivingNeightbours(int i, int j) {
         // i-1 i i+1
-        // [] [] []  y-1
-        // [] [] []  y
-        // [] [] []  y+1
+        // [] [] []  j-1
+        // [] [] []  j
+        // [] [] []  j+1
         int count = 0;
-        if(j>0) {
-            if(this.population[i][j-1]) {
-                count++;
+        if(i-1 > 0) {
+            // First column
+            if(j-1 > 0) {
+                // First row
+                if(i + 1 < this.population.length) {
+                    for(int x = i - 1; x < i + 1; x++) {
+                        if(this.population[i][j-1]) {
+                            count++;
+                        }
+                    }
+                }
             }
         }
-        if(i + 1 < this.population.length) {
-            if(this.population[i+1][j]) {
-                count++;
-            }
-        }
-        if(j + 1 < this.population[i].length) {
-            if(this.population[i][j+1]) {
-                count++;
-            }
-        }
-        if(i > 0) {
-            if(this.population[i-1][j]) {
-                count++;
-            }
-        }
-
         return count;
     }
 
@@ -78,7 +70,12 @@ public class GameOfLife {
         this.population[i][i] = true;
         this.population[i+1][i] = true;
         this.population[i][i+1] = true;
-        this.population[i-1][i] = true;
+        this.population[i+1][i+1] = true;
+    }
+    public void injectSpaceship() {
+        this.population[1][1] = true;
+        this.population[2][2] = true;
+        this.population[2][3] = true;
     }
 
     public void show() {

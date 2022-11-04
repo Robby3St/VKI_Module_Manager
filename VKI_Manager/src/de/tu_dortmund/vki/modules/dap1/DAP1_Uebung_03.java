@@ -80,8 +80,8 @@ public class DAP1_Uebung_03 extends VkiModule {
 
     public void testGameOfLife() {
         GameOfLife gof = new GameOfLife(5);
-        gof.show();
         gof.inject();
+        gof.show();
         gof.futureGeneration(1);
         gof.show();
     }
