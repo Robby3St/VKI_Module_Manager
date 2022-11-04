@@ -83,7 +83,7 @@ public class DAP1_Uebung_03 extends VkiModule {
         gof.inject();
         gof.injectSpaceship();
         gof.show();
-        gof.futureGeneration(1);
+        gof.futureGeneration(20);
         gof.show();
     }
 

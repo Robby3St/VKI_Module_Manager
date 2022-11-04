@@ -19,17 +19,18 @@ public class GameOfLife {
     public void nextState(int i, int j) {
         int neightbours = countLivingNeightbours(i, j);
         if(!this.population[i][j]) {
-            if(neightbours >= 2 && neightbours <= 3) {
+            if(neightbours == 3) {
                 this.population[i][j] = true;
+            }
+        } else {
+            if(neightbours > 3) {
+                this.population[i][j] = false;
+            }
+            if(neightbours < 2) {
+                this.population[i][j] = false;
             }
         }
 
-        if(neightbours > 3) {
-            this.population[i][j] = false;
-        }
-        if(neightbours < 2) {
-            this.population[i][j] = false;
-        }
 
     }
 
@@ -39,7 +40,21 @@ public class GameOfLife {
         // [] [] []  j
         // [] [] []  j+1
         int count = 0;
-        if (i>0) {
+
+        for (int row = -1; row<2; row++) {
+            if (i+row >0 && i + row < population.length) {
+                for (int column = -1; column < 2; column++) {
+                    if(j+column > 0 && j+column < population[i+row].length) {
+                        count += (population[i+row][j+column]) ? 1 : 0;
+                    }
+                }
+            }
+        }
+
+        if (population[i][j]) {
+            count-=1;
+        }
+        /*if (i>0) {
             count += (population[i-1][j])? 1 : 0;
         }
         if (j>0) {
@@ -50,7 +65,7 @@ public class GameOfLife {
         }
         if (j+1 < population[i].length) {
             count += (population[i][j+1])? 1 : 0;
-        }
+        }*/
         System.out.println("Count for i: " + i + " j: " + j + " is: " + count);
         return count;
     }
@@ -73,9 +88,9 @@ public class GameOfLife {
         this.population[i+1][i+1] = true;
     }
     public void injectSpaceship() {
-        this.population[1][1] = true;
         this.population[2][2] = true;
-        this.population[2][3] = true;
+        this.population[3][3] = true;
+        this.population[3][4] = true;
     }
 
     public void show() {
