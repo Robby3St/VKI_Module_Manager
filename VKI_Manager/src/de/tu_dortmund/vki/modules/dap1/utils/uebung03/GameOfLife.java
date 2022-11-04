@@ -14,24 +14,25 @@ public class GameOfLife {
                 this.population[i][j] = false;
             }
         }
+        this.population = population;
     }
 
-    public void nextState(int i, int j) {
-        int neightbours = countLivingNeightbours(i, j);
-        if(!this.population[i][j]) {
-            if(neightbours == 3) {
-                this.population[i][j] = true;
-            }
-        } else {
-            if(neightbours > 3) {
-                this.population[i][j] = false;
-            }
-            if(neightbours < 2) {
-                this.population[i][j] = false;
+    public GameOfLife(boolean[][] population) {
+        for(int i = 0; i < population.length; i++) {
+            for(int j = 0; j < population[i].length; j++) {
+                if(population[i].length != population.length) {
+                    throw new RuntimeException(); // No square field
+                }
             }
         }
+    }
 
-
+    public boolean nextState(int i, int j) {
+        int neightbours = countLivingNeightbours(i, j);
+        if(this.population[i][j]) {
+            return neightbours >= 2 && neightbours <= 3;
+        }
+        return neightbours == 3;
     }
 
     private int countLivingNeightbours(int i, int j) {
@@ -54,30 +55,20 @@ public class GameOfLife {
         if (population[i][j]) {
             count-=1;
         }
-        /*if (i>0) {
-            count += (population[i-1][j])? 1 : 0;
-        }
-        if (j>0) {
-            count += (population[i][j-1])? 1 : 0;
-        }
-        if (i+1 < population.length) {
-            count += (population[i+1][j])? 1 : 0;
-        }
-        if (j+1 < population[i].length) {
-            count += (population[i][j+1])? 1 : 0;
-        }*/
-        System.out.println("Count for i: " + i + " j: " + j + " is: " + count);
+
         return count;
     }
 
     public void futureGeneration(int n) {
+        boolean[][]temp_population = new boolean[population.length][population.length];
         for(int i = 0; i < n; i++) {
-            for(int j = 0; j < this.population.length; j++) {
-                for(int y = 0; y < this.population[j].length; y++) {
-                    this.nextState(j, y);
+            for(int j = 0; j < temp_population.length; j++) {
+                for(int y = 0; y < temp_population[j].length; y++) {
+                    temp_population[j][y] = this.nextState(j, y);
                 }
             }
         }
+        this.population = temp_population;
     }
 
     public void inject() {
@@ -91,6 +82,16 @@ public class GameOfLife {
         this.population[2][2] = true;
         this.population[3][3] = true;
         this.population[3][4] = true;
+    }
+
+    public void injectRandom() {
+        for(int i = 0; i < this.population.length; i++) {
+            for(int j = 0; j < this.population.length; j++) {
+                if(Math.random() <= 0.3) {
+                    this.population[i][j] = true;
+                }
+            }
+        }
     }
 
     public void show() {
