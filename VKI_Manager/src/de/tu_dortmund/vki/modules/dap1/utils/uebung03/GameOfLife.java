@@ -39,19 +39,19 @@ public class GameOfLife {
         // [] [] []  j
         // [] [] []  j+1
         int count = 0;
-        if(i-1 > 0) {
-            // First column
-            if(j-1 > 0) {
-                // First row
-                if(i + 1 < this.population.length) {
-                    for(int x = i - 1; x < i + 1; x++) {
-                        if(this.population[i][j-1]) {
-                            count++;
-                        }
-                    }
-                }
-            }
+        if (i>0) {
+            count += (population[i-1][j])? 1 : 0;
         }
+        if (j>0) {
+            count += (population[i][j-1])? 1 : 0;
+        }
+        if (i+1 < population.length) {
+            count += (population[i+1][j])? 1 : 0;
+        }
+        if (j+1 < population[i].length) {
+            count += (population[i][j+1])? 1 : 0;
+        }
+        System.out.println("Count for i: " + i + " j: " + j + " is: " + count);
         return count;
     }
 

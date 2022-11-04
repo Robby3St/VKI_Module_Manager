@@ -79,8 +79,9 @@ public class DAP1_Uebung_03 extends VkiModule {
     }
 
     public void testGameOfLife() {
-        GameOfLife gof = new GameOfLife(5);
+        GameOfLife gof = new GameOfLife(20);
         gof.inject();
+        gof.injectSpaceship();
         gof.show();
         gof.futureGeneration(1);
         gof.show();
