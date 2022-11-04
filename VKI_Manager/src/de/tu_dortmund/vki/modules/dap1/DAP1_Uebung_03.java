@@ -1,6 +1,7 @@
 package de.tu_dortmund.vki.modules.dap1;
 
 import de.tu_dortmund.vki.modules.dap1.utils.uebung03.Box;
+import de.tu_dortmund.vki.modules.dap1.utils.uebung03.Date;
 import de.tu_dortmund.vki.modules.dap1.utils.uebung03.Period;
 import de.tu_dortmund.vki.modules.dap1.utils.uebung03.PointInTime;
 import de.tu_dortmund.vki.utils.URLSource;
@@ -35,6 +36,8 @@ public class DAP1_Uebung_03 extends VkiModule {
         testPeriod();
         System.out.println("\n");
         testPointInTime();
+        System.out.println("\n");
+        testDate();
     }
 
     public void testBox() {
@@ -67,6 +70,13 @@ public class DAP1_Uebung_03 extends VkiModule {
     public void testPointInTime() {
         PointInTime pit = new PointInTime(2022, 4, 1);
         System.out.println("Pit: " + pit.toString());
+    }
+
+    public void testDate() {
+        Date dap1Uebung = new Date("DAP 1 Übung", new PointInTime(2022, 4, 14), new Period(120));
+        System.out.println("DAP1 Test date: " + dap1Uebung.toString());
+        dap1Uebung.change(14000);
+        System.out.println("Changed date: " + dap1Uebung.toString());
     }
 
 

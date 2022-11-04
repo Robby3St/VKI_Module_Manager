@@ -56,13 +56,37 @@ public class PointInTime {
     }
 
     public void change(int hoursToAdd) {
-        if(hour > 0) {
-            int years = hoursToAdd / 8760;
-            int days = hoursToAdd % 8760 / 24;
+//        if(hour > 0) {
+//            int years = hoursToAdd / 8760;
+//            int days = hoursToAdd / 8760 / 24;
+//
+//            this.day += days;
+//            this.year += years;
+//            this.hour += hoursToAdd % 8760 / 24;
+//        }
+        boolean addDay = false;
+        boolean addYear = false;
 
-            this.day += days;
-            this.year += years;
-            this.hour += hoursToAdd % 8760 % 24;
+        int newHours = this.hour + hoursToAdd % 8760 % 24;
+        if(newHours > 23) {
+            newHours = newHours - 24;
+            addDay = true;
         }
+        this.hour = newHours;
+
+        int newDay = this.day + hoursToAdd % 8760 / 24;
+        if(addDay)
+            newDay++;
+        if(newDay > 365) {
+            newDay = newDay - 365;
+        }
+        this.day = newDay;
+
+        int newYear = this.year + hoursToAdd / 8760;
+        if(addYear)
+            newYear++;
+        this.year = newYear;
+
+
     }
 }
