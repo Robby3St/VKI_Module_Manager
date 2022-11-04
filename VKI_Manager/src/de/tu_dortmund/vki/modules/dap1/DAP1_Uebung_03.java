@@ -1,9 +1,6 @@
 package de.tu_dortmund.vki.modules.dap1;
 
-import de.tu_dortmund.vki.modules.dap1.utils.uebung03.Box;
-import de.tu_dortmund.vki.modules.dap1.utils.uebung03.Date;
-import de.tu_dortmund.vki.modules.dap1.utils.uebung03.Period;
-import de.tu_dortmund.vki.modules.dap1.utils.uebung03.PointInTime;
+import de.tu_dortmund.vki.modules.dap1.utils.uebung03.*;
 import de.tu_dortmund.vki.utils.URLSource;
 import de.tu_dortmund.vki.utils.VkiModule;
 
@@ -38,6 +35,8 @@ public class DAP1_Uebung_03 extends VkiModule {
         testPointInTime();
         System.out.println("\n");
         testDate();
+        System.out.println("\n");
+        testGameOfLife();
     }
 
     public void testBox() {
@@ -77,6 +76,14 @@ public class DAP1_Uebung_03 extends VkiModule {
         System.out.println("DAP1 Test date: " + dap1Uebung.toString());
         dap1Uebung.change(14000);
         System.out.println("Changed date: " + dap1Uebung.toString());
+    }
+
+    public void testGameOfLife() {
+        GameOfLife gof = new GameOfLife(5);
+        gof.show();
+        gof.inject();
+        gof.futureGeneration(1);
+        gof.show();
     }
 
 
