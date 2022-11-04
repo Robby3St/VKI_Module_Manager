@@ -1,6 +1,8 @@
 package de.tu_dortmund.vki.modules.dap1;
 
 import de.tu_dortmund.vki.modules.dap1.utils.uebung03.Box;
+import de.tu_dortmund.vki.modules.dap1.utils.uebung03.Period;
+import de.tu_dortmund.vki.modules.dap1.utils.uebung03.PointInTime;
 import de.tu_dortmund.vki.utils.URLSource;
 import de.tu_dortmund.vki.utils.VkiModule;
 
@@ -29,6 +31,10 @@ public class DAP1_Uebung_03 extends VkiModule {
         // This method is like the main method in java for you
 
         testBox();
+        System.out.println("\n");
+        testPeriod();
+        System.out.println("\n");
+        testPointInTime();
     }
 
     public void testBox() {
@@ -41,6 +47,26 @@ public class DAP1_Uebung_03 extends VkiModule {
         System.out.println("Is cube box1: " + box1.isCube());
         System.out.println("Comparing box1 to box2: " + box1.compareTo(box2));
         System.out.println("Fits box1 in box2: " + box1.encloses(box2));
+    }
+
+    public void testPeriod() {
+        Period p1 = new Period(100);
+        System.out.println("P1 to String: " + p1.toString());
+
+        Period p2 = new Period(60);
+        System.out.println("P2 to String: " + p2.toString());
+
+        Period p3 = new Period(120);
+        System.out.println("P3 to String: " + p3.toString());
+        p3.change(-10);
+        System.out.println("P3 to String (changed by negative): " + p3.toString());
+        p3.change(10);
+        System.out.println("P3 to String (changed by positive): " + p3.toString());
+    }
+
+    public void testPointInTime() {
+        PointInTime pit = new PointInTime(2022, 4, 1);
+        System.out.println("Pit: " + pit.toString());
     }
 
 
