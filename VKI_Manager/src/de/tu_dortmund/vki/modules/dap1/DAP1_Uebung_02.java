@@ -1,4 +1,4 @@
-package de.tu_dortmund.vki.modules;
+package de.tu_dortmund.vki.modules.dap1;
 
 import java.util.Arrays;
 import java.util.HashMap;
