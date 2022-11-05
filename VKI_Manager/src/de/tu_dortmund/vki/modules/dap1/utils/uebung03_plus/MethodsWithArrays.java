@@ -1,6 +1,7 @@
 package de.tu_dortmund.vki.modules.dap1.utils.uebung03_plus;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class MethodsWithArrays {
     public static int most(int[] arr) {
@@ -27,5 +28,25 @@ public class MethodsWithArrays {
         }
 
         return max[1];
+    }
+
+    public static int lastHit(int arr[], int[] numbers) {
+        HashSet<Integer> num = new HashSet<Integer>();
+
+        if(arr == null | arr.length == 0 | numbers == null | numbers.length == 0) {
+            return -1;
+        }
+
+        for(Integer i : numbers) {
+            num.add(i);
+        }
+
+        for(int i = arr.length - 1; i >= 0; i--) {
+            if(num.contains(arr[i])) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 }
