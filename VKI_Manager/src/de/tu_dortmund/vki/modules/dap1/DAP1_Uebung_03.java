@@ -37,6 +37,8 @@ public class DAP1_Uebung_03 extends VkiModule {
         testDate();
         System.out.println("\n");
         testGameOfLife();
+        System.out.println("\n");
+        testMultipleStrings();
     }
 
     public void testBox() {
@@ -86,6 +88,35 @@ public class DAP1_Uebung_03 extends VkiModule {
         gof.show();
         gof.futureGeneration(100);
         gof.show();
+    }
+
+    public void testMultipleStrings() {
+        MultipleStrings mstr = new MultipleStrings(5);
+        mstr.addAtPosition("test", 1);
+        mstr.addAtPosition("test2", 2);
+        mstr.addAtPosition("test", 4);
+        System.out.println("Size: " + mstr.size());
+        System.out.println("Real Size: " + mstr.realSize());
+        System.out.println("AtEnd: " + mstr.atEnd("est"));
+        System.out.println("InAll: " + mstr.inAll('e'));
+        System.out.println(mstr.toString());
+        mstr.addAtPosition("lol", 0);
+        System.out.println("InAll: " + mstr.inAll('e'));
+        System.out.println(mstr.toString());
+        mstr.replace('e', 'o');
+        System.out.println(mstr.toString());
+
+        MultipleStrings mstr2 = new MultipleStrings(4);
+        mstr2.addAtPosition("lol", 0);
+        mstr2.addAtPosition("was geht?", 1);
+        mstr2.addAtPosition("das ist ein replacement test", 2);
+        mstr2.addAtPosition("wie sehen die strings am ende aus?", 3);
+
+        mstr2.replace('e', 'o');
+        mstr2.replace('o', 'e');
+        mstr2.replace('a', 'e');
+        mstr2.replace('i', 'e');
+        System.out.println(mstr2.toString());
     }
 
 
