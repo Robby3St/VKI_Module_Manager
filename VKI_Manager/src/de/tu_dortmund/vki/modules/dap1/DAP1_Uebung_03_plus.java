@@ -35,8 +35,10 @@ public class DAP1_Uebung_03_plus extends VkiModule {
     public void testMethodWithArrays() {
         int[] arr = {1, 2, 3, 3, 3, 3, 2, 2, 2, 2, 6, 7, 4, 6, 2, 4};
         int[] numbers = {8, 84, 85, 37, 27, 45, 45, 7, 5};
+        int[] zeroChains = {1, 5, 0, 2, 4, 0, 0, 3, 5, 4, 6, 7, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 3, 5, 7, 0, 0, 0};
         System.out.println("Most: " + MethodsWithArrays.most(arr));
         System.out.println("Last hit: " + MethodsWithArrays.lastHit(arr, numbers));
+        System.out.println("Zero Chain: " + MethodsWithArrays.zeroSequence(zeroChains));
     }
 
 

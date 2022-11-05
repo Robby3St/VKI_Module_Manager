@@ -49,4 +49,29 @@ public class MethodsWithArrays {
 
         return -1;
     }
+
+    public static int zeroSequence(int[] arr) {
+        int startPosGreatest = -1;
+        int greatestChain = 0;
+        int startPosCurrent = -1;
+        int currentChain = 0;
+
+        for(int i = 0; i < arr.length; i++) {
+            if(currentChain == 0 & arr[i] == 0) {
+                startPosCurrent = i;
+                currentChain++;
+            }
+            if(currentChain > 0 & arr[i] == 0) {
+                currentChain++;
+            } else {
+                currentChain = 0;
+            }
+            if(currentChain >= greatestChain) {
+                greatestChain = currentChain;
+                startPosGreatest = startPosCurrent;
+            }
+        }
+
+        return  startPosGreatest;
+    }
 }
