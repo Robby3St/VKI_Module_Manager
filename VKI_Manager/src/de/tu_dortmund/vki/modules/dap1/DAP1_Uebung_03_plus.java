@@ -2,6 +2,7 @@ package de.tu_dortmund.vki.modules.dap1;
 
 import de.tu_dortmund.vki.modules.dap1.utils.uebung03.*;
 import de.tu_dortmund.vki.modules.dap1.utils.uebung03_plus.MethodsWithArrays;
+import de.tu_dortmund.vki.modules.dap1.utils.uebung03_plus.Numbers;
 import de.tu_dortmund.vki.utils.URLSource;
 import de.tu_dortmund.vki.utils.VkiModule;
 
@@ -30,6 +31,8 @@ public class DAP1_Uebung_03_plus extends VkiModule {
         // This method is like the main method in java for you
 
         testMethodWithArrays();
+        System.out.println("\n");
+        testNumbers();
     }
 
     public void testMethodWithArrays() {
@@ -39,6 +42,20 @@ public class DAP1_Uebung_03_plus extends VkiModule {
         System.out.println("Most: " + MethodsWithArrays.most(arr));
         System.out.println("Last hit: " + MethodsWithArrays.lastHit(arr, numbers));
         System.out.println("Zero Chain: " + MethodsWithArrays.zeroSequence(zeroChains));
+    }
+
+    public void testNumbers() {
+        Numbers n = new Numbers(5);
+        n.insert(1);
+        n.insert(2);
+        n.insert(3);
+        n.reset(1);
+        n.insert(4);
+        n.insert(5);
+        n.insert(6);
+        Numbers copy = n.copy();
+        System.out.println("Numbers 1: " + n.toString());
+        System.out.println("Numbers 1 copy: " + copy.toString());
     }
 
 
