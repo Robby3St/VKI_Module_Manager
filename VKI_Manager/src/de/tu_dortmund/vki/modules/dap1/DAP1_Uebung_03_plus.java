@@ -6,6 +6,8 @@ import de.tu_dortmund.vki.modules.dap1.utils.uebung03_plus.Numbers;
 import de.tu_dortmund.vki.utils.URLSource;
 import de.tu_dortmund.vki.utils.VkiModule;
 
+import java.util.ArrayList;
+
 // This is a demo module. Please copy it, to create your own modules.
 
 // Your module information
@@ -33,6 +35,8 @@ public class DAP1_Uebung_03_plus extends VkiModule {
         testMethodWithArrays();
         System.out.println("\n");
         testNumbers();
+        System.out.println("\n");
+        testGenerate();
     }
 
     public void testMethodWithArrays() {
@@ -42,6 +46,39 @@ public class DAP1_Uebung_03_plus extends VkiModule {
         System.out.println("Most: " + MethodsWithArrays.most(arr));
         System.out.println("Last hit: " + MethodsWithArrays.lastHit(arr, numbers));
         System.out.println("Zero Chain: " + MethodsWithArrays.zeroSequence(zeroChains));
+    }
+
+    public Numbers generate(int[] arr) {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for(int i = 0; i < arr.length; i++) {
+            if(arr[i] > 0) {
+                list.add(arr[i]);
+            }
+        }
+        if(list.size() > 0) {
+            Numbers n = new Numbers(list.size());
+            for(int i = 0; i < list.size(); i++) {
+                n.insert(list.get(i));
+            }
+
+            return n;
+        }
+        return null;
+    }
+
+    private void testGenerate() {
+        int[] test = {-2, -1, -56, -14};
+        int[] test2 = {-2, 5, 5, -3, 5, -2, 6, 8, 3, 643, 0, 634, 3, -4};
+        tryPrintGenerate(generate(test));
+        tryPrintGenerate(generate(test2));
+    }
+
+    public void tryPrintGenerate(Numbers n) {
+        if(n != null) {
+            System.out.println("Generate Test1: " + n.toString());
+        } else {
+            System.out.println("Generate Test1: null");
+        }
     }
 
     public void testNumbers() {
@@ -57,6 +94,7 @@ public class DAP1_Uebung_03_plus extends VkiModule {
         System.out.println("Numbers 1: " + n.toString());
         System.out.println("Numbers 1 copy: " + copy.toString());
     }
+
 
 
 
