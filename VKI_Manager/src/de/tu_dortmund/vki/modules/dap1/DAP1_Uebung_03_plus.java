@@ -37,6 +37,8 @@ public class DAP1_Uebung_03_plus extends VkiModule {
         testNumbers();
         System.out.println("\n");
         testGenerate();
+        System.out.println("\n");
+        testPut();
     }
 
     public void testMethodWithArrays() {
@@ -71,6 +73,32 @@ public class DAP1_Uebung_03_plus extends VkiModule {
         int[] test2 = {-2, 5, 5, -3, 5, -2, 6, 8, 3, 643, 0, 634, 3, -4};
         tryPrintGenerate(generate(test));
         tryPrintGenerate(generate(test2));
+    }
+
+    public boolean put(int[] arr, Numbers n) {
+        for(int i = 0; i < arr.length; i++) {
+            if(!n.insert(arr[i])) {
+                return false;
+            }
+        }
+
+        return  true;
+    }
+
+    public void testPut() {
+        int[] arr = {1, 6};
+        int[] arr2 = {2, 45, 3, 6, 5, 43, 356, 3};
+        int[] numbers = {4, 5, 2, 6, 0, 4};
+        Numbers n = new Numbers(numbers.length);
+        for(int i = 0; i < numbers.length; i++) {
+            n.insert(numbers[i]);
+        }
+        n.reset(2);
+        System.out.println("Numbers object before insertion1: " + n.toString());
+        System.out.println("Could insert all: " + put(arr, n));
+        System.out.println("Numbers object after insertion1: " + n.toString());
+        System.out.println("Could insert all: " + put(arr2, n));
+        System.out.println("Numbers object after insertion2: " + n.toString());
     }
 
     public void tryPrintGenerate(Numbers n) {
