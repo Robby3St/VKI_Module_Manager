@@ -8,15 +8,12 @@ import de.tu_dortmund.vki.utils.VkiModule;
 // Your module information
 
 public class FloatLoop extends VkiModule {
-    private String MODULE_NAME = "Demo Module";
-    private String MODULE_VERSION = "1.0.0";
-    private String MODULE_DATE = "9.9.2022";
-    private String MODULE_LAST_EDIT_DATE = "9.9.2022";
+    private String MODULE_NAME = "Rechnerstrukturen FloatLoop";
+    private String MODULE_VERSION = "1.0.1";
+    private String MODULE_DATE = "9.11.2022";
+    private String MODULE_LAST_EDIT_DATE = "9.11.2022";
     private String[] MODULE_AUTHORS = {"Robin Stecher"};
-    private URLSource[] MODULE_SOURCES = {
-            new URLSource("Own Know How"),
-            new URLSource("Wikipedia", "https://wikipedia.org/")
-    };
+    private URLSource[] MODULE_SOURCES = {};
 
     // YOUR ATTRIBUTES
 
