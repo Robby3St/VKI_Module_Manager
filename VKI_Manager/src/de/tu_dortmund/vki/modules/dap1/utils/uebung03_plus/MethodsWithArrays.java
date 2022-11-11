@@ -60,11 +60,11 @@ public class MethodsWithArrays {
             if(currentChain == 0 & arr[i] == 0) {
                 startPosCurrent = i;
                 currentChain++;
-            }
-            if(currentChain > 0 & arr[i] == 0) {
+            } else if(currentChain > 0 & arr[i] == 0) {
                 currentChain++;
             } else {
                 currentChain = 0;
+                startPosCurrent = -1;
             }
             if(currentChain >= greatestChain) {
                 greatestChain = currentChain;
