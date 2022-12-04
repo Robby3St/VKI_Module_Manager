@@ -20,8 +20,8 @@ public class Main {
 //		manager.loadModule(new DAP1_Uebung_01());
 //		manager.loadModule(new DAP1_Uebung_02());
 //		manager.loadModule(new DAP1_Uebung_03());
-//		manager.loadModule(new DAP1_Uebung_03_plus());
-		manager.loadModule(new FloatLoop());
+		manager.loadModule(new DAP1_Uebung_03_plus());
+//		manager.loadModule(new FloatLoop());
 
 
 		manager.runAll();
