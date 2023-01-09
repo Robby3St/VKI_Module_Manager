@@ -10,11 +10,11 @@ public class CharacterSearchTree
         int count = 0;
 
         if(!this.isEmpty()) {
-            if(!current.leftChild.isEmpty() || !current.rightChild.isEmpty()) {
-                count = current.content.getQuantity() > 1 ? 1 : 0;
+            if(!current.isLeaf()) {
+                count += current.content.getQuantity() > 1 ? 1: 0;
                 if(!current.leftChild.isEmpty())
                     count += current.leftChild.apply();
-                else if(!current.rightChild.isEmpty())
+                if(!current.rightChild.isEmpty())
                     count += current.rightChild.apply();
             }
 
