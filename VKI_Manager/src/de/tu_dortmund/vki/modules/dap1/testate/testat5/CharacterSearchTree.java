@@ -6,16 +6,13 @@ public class CharacterSearchTree
     //--- hier ergaenzen ---
 
     public int apply() {
-        CharacterSearchTree current = this;
         int count = 0;
 
         if(!this.isEmpty()) {
-            if(!current.isLeaf()) {
-                count += current.content.getQuantity() > 1 ? 1: 0;
-                if(!current.leftChild.isEmpty())
-                    count += current.leftChild.apply();
-                if(!current.rightChild.isEmpty())
-                    count += current.rightChild.apply();
+            if(!this.isLeaf()) {
+                count += this.content.getQuantity() > 1 ? 1: 0;
+                count += this.leftChild.apply();
+                count += this.rightChild.apply();
             }
 
             return count;
