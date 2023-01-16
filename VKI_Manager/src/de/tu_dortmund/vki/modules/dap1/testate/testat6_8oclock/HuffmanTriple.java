@@ -1,4 +1,4 @@
-package de.tu_dortmund.vki.modules.dap1.praktikumsblatt.utils.blatt5;
+package de.tu_dortmund.vki.modules.dap1.testate.testat6_8oclock;
 
 public class HuffmanTriple
 {

@@ -115,13 +115,13 @@ public class Blatt2 {
         int indexCurrentSequenceStart = -1;
 
         for(int i = 0; i < arr.length; i++) {
-            if(arr[i].equals(new Fraction())) {
-                if(indexCurrentSequenceStart == i - 1)
-                    sequences++;
-                else if(indexCurrentSequenceStart == -1)
-                    indexCurrentSequenceStart = i;
+            if(!arr[i].equals(new Fraction(0))) { // Fraction not 0
+                if(indexCurrentSequenceStart == i - 1) // fraction before was already not zero
+                    sequences++; // found sequence
+                else if(indexCurrentSequenceStart == -1) // element before was zero, here a potentially sequence starts
+                    indexCurrentSequenceStart = i; // remember for later, if the second element is also not a zero
             } else {
-                indexCurrentSequenceStart = -1;
+                indexCurrentSequenceStart = -1; // current element is a zero, reset current sequence
             }
         }
 

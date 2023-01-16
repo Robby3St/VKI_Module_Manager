@@ -148,5 +148,44 @@ public class CharacterSearchTree
             index = rightChild.toArray( collector, index + 1 );
         }
         return index;
-    }  
+    }
+
+    public int height() {
+        if(isEmpty())
+            return 0;
+
+        CharacterSearchTree left = this.leftChild;
+        CharacterSearchTree right = this.rightChild;
+
+//        if(left.isEmpty() && right.isEmpty())
+//            return 1;
+        int height = 1;
+
+        height = left.height() > height ? left.height() + height : height;
+        height = right.height() > height ? right.height() + height : height;
+
+        return height;
+    }
+
+    public int[] levelWidths() {
+        int[] widths = new int[this.height()];
+        levelWidths(widths, 0);
+        return widths;
+    }
+
+    private void levelWidths(int[] widths, int level) {
+        widths[level]++;
+        leftChild.levelWidths(widths, level + 1);
+        rightChild.levelWidths(widths, level + 1);
+    }
+
+    public int maxLevelWidth() {
+        int max = 0;
+        for(int width : levelWidths()) {
+            if(max < width)
+                max = width;
+        }
+
+        return max;
+    }
 }

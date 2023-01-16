@@ -13,7 +13,7 @@ public class DAP1_Uebung_05 extends VkiModule {
     private String MODULE_NAME = "Übung 5 DAP 1";
     private String MODULE_VERSION = "1.0.0";
     private String MODULE_DATE = "25.11.2022";
-    private String MODULE_LAST_EDIT_DATE = "25.11.2022";
+    private String MODULE_LAST_EDIT_DATE = "23.12.2022";
     private String[] MODULE_AUTHORS = {"Robin Stecher"};
     private URLSource[] MODULE_SOURCES = {};
 
@@ -29,7 +29,44 @@ public class DAP1_Uebung_05 extends VkiModule {
     public void runModule() {
         // This method is like the main method in java for you
 
+        System.out.println(addCalcExists(new int[] {5, 3, 2, 4, 1, 0, 3}, 0, 0)); // Should be true
+        System.out.println(addCalcExists(new int[] {5, 3, 2, 4, 1, 0, 3, 5}, 0, 0)); // Should be false
+        System.out.println(addCalcExists(new int[] {5, 5, 5}, 0, 0)); // Should be false
 
+        System.out.println(addCalcExistsExp(new int[] {5, 3, 2, 4, 1, 0, 3}, 0, 0,
+                "")); // Should be true
+        System.out.println(addCalcExistsExp(new int[] {5, 3, 2, 4, 1, 0, 3, 5}, 0, 0,
+                "")); // Should be false
+        System.out.println(addCalcExistsExp(new int[] {5, 5, 5}, 0, 0, "")); // Should be false
+    }
+
+    public boolean addCalcExists(int[] values, int position, int result) {
+        if(values.length == position) {
+            return result == 0;
+        }
+
+        if(addCalcExists(values, position + 1, result + values[position]))
+            return true;
+        return addCalcExists(values, position + 1, result - values[position]);
+    }
+
+    public String addCalcExistsExp(int[] values, int position, int result, String exp) {
+        if(values.length == position) {
+            if(result == 0) {
+                return exp;
+            } else {
+                return "Calc not possible.";
+            }
+        }
+
+        String calc = addCalcExistsExp(values, position + 1,
+                result + values[position], exp + "+" + values[position]);
+
+        if(!calc.equals("Calc not possible.")) {
+            return calc;
+        }
+        return addCalcExistsExp(values, position + 1,
+                result - values[position], exp + "-" + values[position]);
     }
 
 
