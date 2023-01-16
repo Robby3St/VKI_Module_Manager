@@ -6,9 +6,8 @@ public class CharacterSearchTree {
 
     public int apply(int i) {
         if(!isEmpty()) {
-            if(!this.leftChild.isEmpty() && this.leftChild.content.getQuantity() > i) {
-                return leftChild.apply(i) + 1 + rightChild.apply(i);
-            } else if (!this.rightChild.isEmpty() && this.rightChild.content.getQuantity() > i) {
+            if((!this.leftChild.isEmpty() && this.leftChild.content.getQuantity() > i) ||
+                    (!this.rightChild.isEmpty() && this.rightChild.content.getQuantity() > i)) {
                 return leftChild.apply(i) + 1 + rightChild.apply(i);
             } else
                 return leftChild.apply(i) + rightChild.apply(i);
