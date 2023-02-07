@@ -52,7 +52,8 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] arr =  {13, 26, 8, 28, 34, 20, 10, 12, 6};
+        int[] oldArr =  {13, 26, 8, 28, 34, 20, 10, 12, 6};
+        int[] arr =  {7, 27, 19, 71, 35, 30, 18, 22, 25};
         QuickSort qs = new QuickSort();
         qs.quickSort(arr, 0, arr.length - 1);
         qs.showPivots();
